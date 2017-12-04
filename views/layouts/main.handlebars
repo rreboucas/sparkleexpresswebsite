@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- References a Handlebars partial in views/partials/head.handlebars -->
+  {{>head}}
+
+  <title>Project Sparkle</title>
+</head>
+
+
+<body>
+    <div class="slds-grid slds-wrap">
+        
+        {{>h_navbar}}
+
+        {{>v_navbar}}
+        <main class="slds-col slds-size--1-of-2">
+            <!-- Main Body Component -->
+
+            {{{body}}}
+
+            <!-- End: Main Body Component -->
+        </main>
+        <section class="slds-col slds-size--1-of-1">
+            <!-- Footer -->
+
+           
+
+            <!-- End: Footer -->
+        </section>
+    </div>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
