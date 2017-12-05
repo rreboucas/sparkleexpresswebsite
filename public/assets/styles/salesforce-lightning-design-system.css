@@ -10190,11 +10190,25 @@ a.slds-button--inverse:focus {
  * @restrict div
  * @variant
  */
-.slds-context-bar {
+
+ .slds-custom-context-bar {
   display: -ms-flexbox;
   display: flex;
   height: 4.0rem;
-  background-color: #00354e;
+  background-color: #003C4D;
+  color: #16325c;
+  width:100%;
+  position: absolute;
+  padding: 0 0 0 1.5rem;
+ }
+
+
+
+ .slds-context-bar {
+  display: -ms-flexbox;
+  display: flex;
+  height: 4.0rem;
+  background-color: #003C4D;
   color: #16325c;
   width:100%;
   position: absolute;
@@ -10275,7 +10289,8 @@ a.slds-button--inverse:focus {
 .slds-context-bar__secondary {
   -ms-flex: 1 1 0%;
       flex: 1 1 0%;
-  min-width: 0; }
+  min-width: 0;
+padding-left: 2% }
 
 .slds-context-bar__vertical-divider {
   width: 0;
@@ -10291,7 +10306,7 @@ a.slds-button--inverse:focus {
       align-items: stretch;
   white-space: nowrap;
   position: relative;
-  max-width: 15rem;
+  max-width: 20rem;
   transition: background-color 0.25s cubic-bezier(0.39, 0.575, 0.565, 1);
   /**
      * Active state of an item
@@ -10398,7 +10413,7 @@ a.slds-button--inverse:focus {
   padding: 0 0.75rem;
   border-radius: 0;
   min-width: 0%;
-  color: whitesmoke;
+  color: #FFFFFF;
   font-size: 0.8125rem; }
 
 .slds-context-bar__label-action:focus, .slds-context-bar__label-action:focus:hover {
@@ -10546,6 +10561,7 @@ a.slds-button--inverse:focus {
 .slds-context-bar__app-name {
   padding: 0 1.5rem 0 0;
   padding-right: 40%;
+  padding-left: 18%;
   font-size: 1.125rem;
   font-weight: 300;
   line-height: 1.25; }

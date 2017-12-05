@@ -8,33 +8,36 @@
   <title>Project Sparkle</title>
 </head>
 
-<div class="slds-grid_align-center"> 
+<div> 
 <body>
-    
-    <div class="slds-grid slds-wrap ">
-        <div class="slds-col slds-size--1-of-1">
-            {{>h_navbar}}
+    <div class="slds-custom-context-bar">
+    <div style="max-width: 960px; margin: auto; min-width:800px;">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size--1-of-1">
+                {{>h_navbar}}
+            </div>
+            <br/>  <br/>   <br/> <br/>   <br/> 
+            <div class="slds-col slds-size--1-of-2"> 
+            {{>v_navbar}}
+            </div>
+            <main class="slds-col slds-size--1-of-2">
+                <!-- Main Body Component -->
+
+                {{{body}}}
+
+                <!-- End: Main Body Component -->
+            </main>
+            <section class="slds-col slds-size--1-of-1">
+                <!-- Footer -->
+
+            
+
+                <!-- End: Footer -->
+            </section>
         </div>
-        <br/>  <br/>   <br/> <br/>   <br/> 
-        <div class="slds-col slds-size--1-of-2"> 
-        {{>v_navbar}}
-        </div>
-        <main class="slds-col slds-size--1-of-2">
-            <!-- Main Body Component -->
-
-            {{{body}}}
-
-            <!-- End: Main Body Component -->
-        </main>
-        <section class="slds-col slds-size--1-of-1">
-            <!-- Footer -->
-
-           
-
-            <!-- End: Footer -->
-        </section>
-    </div>
 </body>
+</div>
+</div>
 </div>
 
 
