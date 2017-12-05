@@ -14,34 +14,32 @@
                         </div>
                     </div>
                     <div class="slds-nav-vertical__section">
-                        <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Reports</h2>
+                        <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Lightning Components</h2>
                         <ul>
-                            <li class="slds-nav-vertical__item slds-is-active">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header"
-                                    aria-current="page">Recent</a>
+                            <li id="canvasApp" class="slds-nav-vertical__item">
+                                <a href="/canvasapp" class="slds-nav-vertical__action" aria-describedby="entity-header"
+                                    aria-current="page">CanvasApp</a>
                             </li>
                             <li class="slds-nav-vertical__item">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Created by Me</a>
+                                <a href="/dynamicsearch" class="slds-nav-vertical__action" aria-describedby="entity-header">DynamicSearch</a>
                             </li>
                             <li class="slds-nav-vertical__item">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Private Reports</a>
+                                <a href="/filesviewer" class="slds-nav-vertical__action" aria-describedby="entity-header">FilesViewer</a>
                             </li>
                             <li class="slds-nav-vertical__item">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">Public Reports</a>
+                                <a href="/historytimeline" class="slds-nav-vertical__action" aria-describedby="entity-header">HistoryTimeline</a>
                             </li>
                             <li class="slds-nav-vertical__item">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="entity-header">All Reports</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="slds-nav-vertical__section">
-                        <h2 id="folder-header" class="slds-nav-vertical__title slds-text-title_caps">Folders</h2>
-                        <ul>
-                            <li class="slds-nav-vertical__item">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="folder-header">Created by Me</a>
+                                <a href="/listview" class="slds-nav-vertical__action" aria-describedby="entity-header">ListView</a>
                             </li>
                             <li class="slds-nav-vertical__item">
-                                <a href="javascript:void(0);" class="slds-nav-vertical__action" aria-describedby="folder-header">Shared with Me</a>
+                                <a href="/offerdetailsspa" class="slds-nav-vertical__action" aria-describedby="entity-header">OfferDetailsSPA</a>
+                            </li>
+                            <li class="slds-nav-vertical__item">
+                                <a href="/relatedlist" class="slds-nav-vertical__action" aria-describedby="entity-header">RelatedList</a>
+                            </li>
+                            <li class="slds-nav-vertical__item">
+                                <a href="/twitterexplorer" class="slds-nav-vertical__action" aria-describedby="entity-header">TwitterExplorer</a>
                             </li>
                         </ul>
                     </div>
@@ -52,3 +50,18 @@
 
             <!-- End: Vertical Navigation Menu -->
         </nav>
+
+        <script type="text/javascript">
+
+        $(document).ready(function(){
+            $("li").click(function(){
+            //$("li").hide();
+            //$("li").removeClass("slds-nav-vertical__item");
+            //$("li").addClass("slds-nav-vertical__item slds-is-active");
+            });
+
+        });
+
+    
+
+        </script>

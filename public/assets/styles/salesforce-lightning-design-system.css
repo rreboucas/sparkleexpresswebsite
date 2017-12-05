@@ -10194,10 +10194,10 @@ a.slds-button--inverse:focus {
   display: -ms-flexbox;
   display: flex;
   height: 4.0rem;
-  background-color: white;
-  border-bottom: 3px solid #00a1df;
+  background-color: #00354e;
   color: #16325c;
-  position: relative;
+  width:100%;
+  position: absolute;
   padding: 0 0 0 1.5rem;
   /**
    * Primary zone
@@ -10398,7 +10398,7 @@ a.slds-button--inverse:focus {
   padding: 0 0.75rem;
   border-radius: 0;
   min-width: 0%;
-  color: inherit;
+  color: whitesmoke;
   font-size: 0.8125rem; }
 
 .slds-context-bar__label-action:focus, .slds-context-bar__label-action:focus:hover {
@@ -10409,7 +10409,7 @@ a.slds-button--inverse:focus {
   text-decoration: none; }
 
 .slds-context-bar__label-action:hover, .slds-context-bar__label-action:focus {
-  color: inherit; }
+  }
 
 .slds-context-bar__label-action:active {
   color: inherit;
@@ -10424,7 +10424,7 @@ a.slds-button--inverse:focus {
       align-content: center;
   margin-left: -0.25rem;
   padding: 0 0.5rem;
-  color: #706e6b;
+  color: #ece9e5;
   border-radius: 0; }
 
 .slds-context-bar__icon-action:focus {
