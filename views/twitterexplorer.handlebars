@@ -1,3 +1,24 @@
 <div>
     <h3>TwitterExplorer</h3>
+
+    <script src="https://sparklelightningcommunity.force.com/lightning/lightning.out.js"></script>
+
+    <script>
+    $Lightning.use("c:TwitterExplorer_LtngOut",    // name of the Lightning app
+        function() {                  // Callback once framework and app loaded
+            $Lightning.createComponent(
+                "c:LtngOutTest", // top-level component of your app
+                { },                  // attributes to set on the component when created
+                "lightningLocator",   // the DOM location to insert the component
+                function(cmp) {
+                    // callback when component is created and active on the page
+                }
+            );
+        },
+        'https://sparklelightningcommunity.force.com/'  // Community endpoint
+    );
+</script>
+
+<div id="lightningLocator"/>
+
 </div>
