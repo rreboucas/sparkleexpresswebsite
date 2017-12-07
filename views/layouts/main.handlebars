@@ -8,48 +8,18 @@
   <title>Project Sparkle</title>
 </head>
 
+<script src="https://sparklelightningcommunity.force.com/lightning/lightning.out.js"></script>
+
 <div> 
 <body>
-    <div class="slds-custom-context-bar">
-    <div style="max-width: 960px; margin: auto; min-width:800px;">
-        <div class="slds-grid slds-wrap">
-            <div class="slds-col slds-size--1-of-1">
-                {{>h_navbar}}
-            </div>
-            <br/>  <br/>   <br/> <br/>   <br/> 
-            <div class="slds-col slds-size--1-of-2"> 
-            {{>v_navbar}}
-            </div>
-            <main class="slds-col slds-size--1-of-2">
-                <!-- Main Body Component -->
 
-                {{{body}}}
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size--1-of-1">{{>h_navbar}}</div>
+        <div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--2-of-12">{{>v_navbar}}</div>
+        <div class="slds-size--1-of-1 slds-medium-size--4-of-6 slds-large-size--10-of-12">{{{body}}}</div>
+    </div>
 
-                <!-- End: Main Body Component -->
-            </main>
-            <section class="slds-col slds-size--1-of-1">
-                <!-- Footer -->
-
-            
-
-                <!-- End: Footer -->
-            </section>
-        </div>
 </body>
 </div>
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
 
 </html>

@@ -27,24 +27,11 @@ app.use(bodyParser.json());
 app.set('port', process.env.PORT || 8080);
 
 /*Allow CORS*/
-app.use(function(req, res, next) {
-	 
-	res.setHeader('Access-Control-Allow-Origin', '*');
-	res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, X-Response-Time, X-PINGOTHER, X-CSRF-Token,Authorization,X-Authorization'); 
-	res.setHeader('Access-Control-Allow-Methods', '*');
-	res.setHeader('Access-Control-Expose-Headers', 'X-Api-Version, X-Request-Id, X-Response-Time');
-	res.setHeader('Access-Control-Max-Age', '1000');
-	  
-	next();
-});
-
-app.all('/proxy',  function(req, res, next) { 
-    
-    var url = req.header('SalesforceProxy-Endpoint');  
-    request({ url: url, method: req.method, json: req.body, 
-                    headers: {'Authorization': req.header('X-Authorization'), 'Content-Type' : 'application/json'}, body:req.body }).pipe(res);    
-    
-});
+app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+ });
 
 // Define some routes. app.get receives a path and a
 // function and it defines our routes. The path isn't

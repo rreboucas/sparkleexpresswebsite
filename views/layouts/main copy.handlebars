@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- References a Handlebars partial in views/partials/head.handlebars -->
+  {{>head}}
+
+  <title>Project Sparkle</title>
+</head>
+
+<script src="https://sparklelightningcommunity.force.com/lightning/lightning.out.js"></script>
+
+<div> 
+<body>
+    <div class="slds-custom-context-bar">
+    <div style="">
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size--1-of-1">
+                {{>h_navbar}}
+            </div>
+            <br/>  <br/>   <br/> <br/> 
+            <div class="slds-col slds-size--2-of-5" style="padding-right:8%; "> 
+            {{>v_navbar}}
+            </div>
+            <main class="slds-col slds-size--3-of-5">
+                <!-- Main Body Component -->
+
+                {{{body}}}
+
+                <!-- End: Main Body Component -->
+            </main>
+            <section class="slds-col slds-size--1-of-1">
+                <!-- Footer -->
+
+            
+
+                <!-- End: Footer -->
+            </section>
+        </div>
+</body>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>

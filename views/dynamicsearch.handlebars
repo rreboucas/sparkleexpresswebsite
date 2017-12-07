@@ -1,3 +1,141 @@
-<div>
-    <h3>DynamicSearch</h3>
-</div>
+<div style="padding-top: 5.2rem">
+
+
+    <script>
+        $Lightning.use("c:DynamicSearch_LtngOut",    // name of the Lightning app
+            function () {                  // Callback once framework and app loaded
+                $Lightning.createComponent(
+                    "c:DynamicSearch", // top-level component of your app
+                    {
+                        "objectApiName": "Candidate__c"
+                    },                  // attributes to set on the component when created
+                    "lightningLocator",   // the DOM location to insert the component
+                    function (cmp) {
+                        // callback when component is created and active on the page
+                    }
+                );
+            },
+            'https://sparklelightningcommunity.force.com/'  // Community endpoint
+        );
+    </script>
+
+
+
+    <div class="slds-grid slds-wrap">
+        <div class="slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--1-of-1">
+            <div class="lcs-docpage-header">DynamicSearch</div>
+        </div>
+        <div class="slds-size--1-of-1 slds-medium-size--4-of-6 slds-large-size--8-of-12">
+
+            <!-- Lightning Out Preview and rest of the page body goes here -->
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--1-of-1" style="padding-top: 1.2rem; font-size: 1.05rem; font-weight: 300;line-height: 1.7142857143;color: #5876a3;">
+                    Dynamic Filter/Search Component for List Items
+                </div>
+                <div id="lightningLocator" class="slds-size--1-of-2 slds-medium-size--4-of-6 slds-large-size--8-of-12" style="padding-top: 3.6rem; ">
+                    
+                </div>
+
+            </div>
+
+            
+        </div>
+
+        <div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--4-of-12" style="padding-top: 4.2rem;">
+            <div class="slds-form slds-form_stacked">
+                <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Attributes</h2>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                    <div class="slds-form-element__control">
+                        <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <!--<div class="slds-grid">
+                <div class="slds-col slds-size--4-of-6">
+                    <div>Dynamic Filter/Search Component for List Items</div>
+
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size--1-of-1">
+                            <div id="lightningLocator" />
+                        </div>
+                    </div>
+
+                </div>
+                <div class="slds-col slds-size--2-of-6">
+                   
+                    <div class="slds-form slds-form_stacked">
+                        <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Attributes</h2>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                            </div>
+                        </div>
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="input-id-01">Text Input</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="input-id-01" class="slds-input" placeholder="Placeholder Text" />
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
+            </div> -->

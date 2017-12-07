@@ -216,6 +216,11 @@ optgroup {
 table {
   border-collapse: collapse;
   border-spacing: 0; }
+/*
+div {
+  border: 2px solid blue;
+}
+*/
 
 td,
 th {
@@ -357,6 +362,28 @@ video {
 img {
   max-width: 100%;
   height: auto; }
+
+.lcs-docpage-header {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  height: 4.0rem;
+  padding: 1rem 1.5rem;
+  background-color: #F4F6F9;
+  color: #54698D;
+  -webkit-tap-highlight-color: transparent;
+  width:100%;
+}
+
+.slds-custom-context-bar {
+  display: -ms-flexbox;
+  display: flex;
+  height: 4.0rem;
+  background-color: #003C4D;
+  color: #16325c;
+  width:100%;
+  position: absolute;
+  padding: 0 0 0 1.5rem;
+ }
 
 .slds-modal_form .slds-modal__header,
 .slds-modal_form .slds-modal__content:last-child,
@@ -10191,16 +10218,7 @@ a.slds-button--inverse:focus {
  * @variant
  */
 
- .slds-custom-context-bar {
-  display: -ms-flexbox;
-  display: flex;
-  height: 4.0rem;
-  background-color: #003C4D;
-  color: #16325c;
-  width:100%;
-  position: absolute;
-  padding: 0 0 0 1.5rem;
- }
+ 
 
 
 
