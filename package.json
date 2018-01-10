@@ -12,7 +12,9 @@
     "cors": "^2.8.4",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
-    "request": "^2.83.0"
+    "jsforce": "^1.8.0",
+    "request": "^2.83.0",
+    "xamel": "^0.3.1"
   },
   "devDependencies": {},
   "description": ""

@@ -7,6 +7,13 @@ app = express();
 var https = require('https');
 var fs = require('fs');
 
+var jsforce = require('jsforce');
+var username = '';
+var accessToken = '';
+var password = '' + accessToken;
+
+var xamel = require('xamel');
+
 var app = express();
 
 app.disable('x-powered-by');
@@ -65,20 +72,108 @@ app.get('/help', function(req, res, next){
         res.render('help');
     });    
 
-    app.get('/canvasapp', function(req, res, next){
+app.get('/canvasapp', function(req, res, next){
         
         
         // Point at the home.handlebars view
         res.render('canvasapp');
         });
 
-    app.get('/dynamicsearch', function(req, res, next){
+app.get('/dynamicsearch', function(req, res, next){
 
-// Point at the home.handlebars view
-res.render('dynamicsearch');
+    var lcdoc;
+
+    var conn = new jsforce.Connection({
+        // you can change loginUrl to connect to sandbox or prerelease env.
+        // loginUrl : 'https://test.salesforce.com'
+      });
+      conn.login(username, password, function(err, userInfo) {
+        if (err) { return console.error(err); }
+        // Now you can get the access token and instance URL information.
+        // Save them to establish connection next time.
+        console.log(conn.accessToken);
+        console.log(conn.instanceUrl);
+        // logged in user property
+        console.log("User ID: " + userInfo.id);
+        console.log("Org ID: " + userInfo.organizationId);
+        // ...
+        
+        var bundleId;
+
+        conn.tooling.sobject('AuraDefinitionBundle')
+  .find({ DeveloperName: "DynamicSearch" })
+  .execute(function(err, records) {
+    if (err) { return console.error(err); }
+    console.log("fetched : " + records.length);
+    for (var i=0; i < records.length; i++) {
+      var record = records[i];
+      console.log('Id: ' + record.Id);
+      console.log('Name: ' + record.DeveloperName);
+      bundleId = record.Id;
+    }
+
+    if (bundleId){
+        conn.tooling.sobject('AuraDefinition')
+        .find({ AuraDefinitionBundleId: bundleId })
+        .execute(function(err, records) {
+          if (err) { return console.error(err); }
+          console.log("fetched : " + records.length);
+          for (var i=0; i < records.length; i++) {
+            var record = records[i];
+            var defType =  record.DefType;
+            if (defType == "DOCUMENTATION"){
+                console.log("documentation : " + record.Source);
+                responseXML = record.Source;
+
+                xamel.parse(responseXML, { buildPath : 'aura:documentation/aura:example' }, function(err, xml) {
+                    if (err !== null) {
+                        throw err;
+                    }
+                
+                    console.log(xml);
+                });
+
+                lcdoc = record.Source;
+                res.render('dynamicsearch', { doc: lcdoc});
+            }
+          }
+          
+        });
+      }
+    
+  });
+
+  
+
+        /*
+        var fullNames = [ 'FilesViewer', 'DynamicSearch' ];
+        conn.metadata.read('AuraDefinitionBundle', fullNames, function(err, metadata) {
+          if (err) { console.error(err); }
+          for (var i=0; i < metadata.length; i++) {
+            var meta = metadata[i];
+            console.log("Full Name: " + meta.fullName);
+            console.log("Metadata: " + meta);
+            var documentation = meta.documentationContent;
+            console.log("DocContent:" + documentation);
+            if (documentation)
+            {
+                lcdoc = atob(documentation);
+                console.log("lcdoc:" + lcdoc);
+            }
+          }
+        // Point at thehandlebars view
+        res.render('dynamicsearch', { doc: lcdoc});  
+        });
+
+        */
+      });
+
+
+
 });  
 
 app.get('/filesviewer', function(req, res, next){
+
 
 // Point at the home.handlebars view
 res.render('filesviewer');
@@ -113,6 +208,7 @@ app.get('/twitterexplorer', function(req, res, next){
         // Point at the home.handlebars view
         res.render('twitterexplorer');
     }); 
+
 
 
 app.listen(app.get('port'), function(){
