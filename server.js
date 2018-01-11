@@ -8,9 +8,9 @@ var https = require('https');
 var fs = require('fs');
 
 var jsforce = require('jsforce');
-var username = 'tso@officespace.com';
-var accessToken = 'zXmMlzRVpuGEyAjl0uPWpTeAi';
-var password = 'PlatfomrEvents01!' + accessToken;
+var username = '';
+var accessToken = '';
+var password = '!' + accessToken;
 
 var xamel = require('xamel');
 
