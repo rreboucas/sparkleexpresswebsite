@@ -8,9 +8,9 @@ var https = require('https');
 var fs = require('fs');
 
 var jsforce = require('jsforce');
-var username = '';
-var accessToken = '';
-var password = '' + accessToken;
+var username = 'tso@officespace.com';
+var accessToken = 'zXmMlzRVpuGEyAjl0uPWpTeAi';
+var password = 'PlatfomrEvents01!' + accessToken;
 
 var xamel = require('xamel');
 
@@ -82,6 +82,7 @@ app.get('/canvasapp', function(req, res, next){
 app.get('/dynamicsearch', function(req, res, next){
 
     var lcdoc;
+    var attribArray;
 
     var conn = new jsforce.Connection({
         // you can change loginUrl to connect to sandbox or prerelease env.
@@ -125,17 +126,39 @@ app.get('/dynamicsearch', function(req, res, next){
                 console.log("documentation : " + record.Source);
                 responseXML = record.Source;
 
-                xamel.parse(responseXML, { buildPath : 'aura:documentation/aura:example' }, function(err, xml) {
+                xamel.parse(responseXML, { buildPath : 'aura:documentation/aura:example/text()' }, function(err, xml) {
                     if (err !== null) {
                         throw err;
                     }
-                
-                    console.log(xml);
+                    var resultParse = JSON.stringify(xml);
+                    console.log(resultParse);
+                    lcdoc = resultParse.replace('["', '');
+                    lcdoc = lcdoc.replace('"]', '');
+                    //res.render('dynamicsearch', { description: lcdoc});
                 });
 
-                lcdoc = record.Source;
-                res.render('dynamicsearch', { doc: lcdoc});
+                
             }
+
+            if (defType == "COMPONENT"){
+                console.log("documentation : " + record.Source);
+                responseXML = record.Source;
+
+                
+                xamel.parse(responseXML, { buildPath : 'aura:component/aura:attribute' }, function(err, xml) {
+                    if (err !== null) {
+                        throw err;
+                    }
+                    console.log(xml);
+                    attribArray = xml.children;
+                    res.render('dynamicsearch', { description: lcdoc, attributes: attribArray});
+                });
+                
+                
+            }
+            
+
+
           }
           
         });
