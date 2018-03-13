@@ -1,16 +1,20 @@
 var express = require('express'),
+helmet = require('helmet'),
 http = require('http'), 
 request = require('request'),
 bodyParser = require('body-parser'),
 app = express();
+app.use(helmet({
+    frameguard: false
+  }));
 
 var https = require('https');
 var fs = require('fs');
 
 var jsforce = require('jsforce');
-var username = '';
-var accessToken = '';
-var password = '!' + accessToken;
+var username = 'tso@officespace.com';
+var accessToken = 'QoCGf1yUcImWEdP3kV3D7ZJP';
+var password = 'Analytics01!' + accessToken;
 
 var xamel = require('xamel');
 
@@ -125,8 +129,9 @@ app.get('/dynamicsearch', function(req, res, next){
             if (defType == "DOCUMENTATION"){
                 console.log("documentation : " + record.Source);
                 responseXML = record.Source;
-
-                xamel.parse(responseXML, { buildPath : 'aura:documentation/aura:example/text()' }, function(err, xml) {
+                lcdoc = responseXML;
+                //xamel.parse(responseXML, { buildPath : 'aura:documentation/aura:description/text()' }, function(err, xml)
+                /*xamel.parse(responseXML, { buildPath : 'aura:documentation/aura:description' }, function(err, xml) {
                     if (err !== null) {
                         throw err;
                     }
@@ -134,8 +139,9 @@ app.get('/dynamicsearch', function(req, res, next){
                     console.log(resultParse);
                     lcdoc = resultParse.replace('["', '');
                     lcdoc = lcdoc.replace('"]', '');
+                    lcdoc = xml;
                     //res.render('dynamicsearch', { description: lcdoc});
-                });
+                });*/
 
                 
             }

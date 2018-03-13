@@ -21,9 +21,23 @@
             'https://sparklelightningcommunity.force.com/'  // Community endpoint
         );
 
+    
+        
+        function rerenderLC( arrayIndex, newValue){
+            var attribName = 'attrib' + (arrayIndex + 1);
+            var testLtngOutWindow = window.opener.$A.get("e.c:ltngOut_Event");
+
+            var myExternalEvent;
+            if(window.opener.$A &&
+                (myExternalEvent = window.opener.$A.get("e.c:ltngOut_Event"))) {
+                    myExternalEvent.setParams({WhoFired:'SparklePublicWebsite - DynamicSearch'});
+                    myExternalEvent.setParams({attribName:newValue});
+                    myExternalEvent.fire();
+                }
+
+        }
+        
     </script>
-
-
 
     <div class="slds-grid slds-wrap">
         <div class="slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--1-of-1">
@@ -35,7 +49,7 @@
 
             <div class="slds-grid slds-wrap">
                 <div class="slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--1-of-1" style="padding-top: 1.2rem; font-size: 1.05rem; font-weight: 300;line-height: 1.7142857143;color: #5876a3;">
-                    {{description}}
+                    {{{description}}}
                 </div>
                 <div id="lightningLocator" class="slds-size--1-of-2 slds-medium-size--4-of-6 slds-large-size--8-of-12" style="padding-top: 3.6rem; ">
                     
@@ -53,7 +67,7 @@
                      <div class="slds-form-element">
                         <label class="slds-form-element__label" for="input-id-01">{{attrs.name}}</label>
                         <div class="slds-form-element__control">
-                            <input type="text" id="input-id-01" class="slds-input" value="{{attrs.default}}" onchange="rerenderLC(this.value)" />
+                            <input type="text" id="input-id-01" class="slds-input" value="{{attrs.default}}" onchange="rerenderLC({{@index}}, this.value)" />
                         </div>
                     </div>
                 {{/each}}

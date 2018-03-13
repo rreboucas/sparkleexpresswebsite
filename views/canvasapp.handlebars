@@ -4,23 +4,24 @@
     
 
     <script>
-    $Lightning.use("c:CanvasApp_LtngOut",    // name of the Lightning app
-        function() {                  // Callback once framework and app loaded
-            $Lightning.createComponent(
-                "c:CanvasApp", // top-level component of your app
-                { 
-                    "developerName": "testtecanvasheroku",
-                    "applicationName": "testtecanvasheroku",
-                    "namespacePrefix": "isvtelightning"
-                },                  // attributes to set on the component when created
-                "lightningLocator",   // the DOM location to insert the component
-                function(cmp) {
-                    // callback when component is created and active on the page
-                }
-            );
-        },
-        'https://sparklelightningcommunity.force.com/'  // Community endpoint
-    );
+     $Lightning.use("c:DynamicSearch_LtngOut",    // name of the Lightning app
+            function () {                  // Callback once framework and app loaded
+                $Lightning.createComponent(
+                    "componentReference:suite", // top-level component of your app
+                    {
+                        "page": "lightning:card"
+                    },                  // attributes to set on the component when created
+                    "lightningLocator",   // the DOM location to insert the component
+                    function (cmp) {
+                        // callback when component is created and active on the page
+                    }
+                );
+
+                
+
+            },
+            'https://sparklelightningcommunity.force.com/'  // Community endpoint
+        );
 </script>
 
 <div id="lightningLocator"/>
