@@ -7,9 +7,10 @@
      $Lightning.use("c:DynamicSearch_LtngOut",    // name of the Lightning app
             function () {                  // Callback once framework and app loaded
                 $Lightning.createComponent(
-                    "componentReference:suite", // top-level component of your app
+                    "c:CanvasApp", // top-level component of your app
                     {
-                        "page": "lightning:card"
+                        "developerName": "testtecanvasheroku",
+                        "applicationName": "testtecanvasheroku"
                     },                  // attributes to set on the component when created
                     "lightningLocator",   // the DOM location to insert the component
                     function (cmp) {
@@ -24,6 +25,38 @@
         );
 </script>
 
-<div id="lightningLocator"/>
+<div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                    <div class="lcs-docpage-header">CanvasApp</div>
+                </div>
+                <div class="slds-col slds-grid slds-size_1-of-1">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    <div class="slds-box slds-theme_shade">
+                        <div id="lightningLocator"  />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    
+                   <div class="slds-form slds-form_stacked">
+                        <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Attributes</h2>
+                        <!-- {{#each attributes}} -->
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="input-id-01">{{attrs.name}}</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="input-id-01" class="slds-input" style="max-width: 70%" value="{{attrs.default}}" onchange="rerenderLC({{@index}}, this.value)" />
+                                </div>
+                            </div>
+                        <!-- {{/each}} -->
+                    </div>
+                </div>
+                </div>
+                <div class="slds-col slds-grid slds-size_1-of-1">
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="slds-col slds-size--12-of-12" style="padding-top: 1.2rem; font-size: 1.05rem; font-weight: 300;line-height: 1.7142857143;color: #5876a3;">
+                            <!-- {{{description}}} -->
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 </div>

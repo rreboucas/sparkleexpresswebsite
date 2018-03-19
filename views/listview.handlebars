@@ -1,3 +1,49 @@
-<div>
-    <h3>ListView</h3>
-</div>
+<div style="padding-top: 5.2rem">
+
+
+    <script>
+        $Lightning.use("c:DynamicSearch_LtngOut",    // name of the Lightning app
+            function () {                  // Callback once framework and app loaded
+                $Lightning.createComponent(
+                    "c:Generic_List", // top-level component of your app
+                    {
+                        "objectApiName": "Interview__c",
+                        "filter1_fieldapiname": "Status__c",
+                        "filter1_fieldValue": "Pending",
+                        "column1_headertext": "Candidate",
+                        "column1_fieldapiname": "Candidate__r.Full_Name__c",
+                        "column2_headertext": "Position",
+                        "column2_fieldapiname": "Candidate__r.Position__r.Name"
+                    },                  // attributes to set on the component when created
+                    "lightningLocator",   // the DOM location to insert the component
+                    function (cmp) {
+                        // callback when component is created and active on the page
+                    }
+                );
+
+                
+
+            },
+            'https://sparklelightningcommunity.force.com/'  // Community endpoint
+        );
+
+    
+        
+        function rerenderLC( arrayIndex, newValue){
+            var attribName = 'attrib' + (arrayIndex + 1);
+            var testLtngOutWindow = window.opener.$A.get("e.c:ltngOut_Event");
+
+            var myExternalEvent;
+            if(window.opener.$A &&
+                (myExternalEvent = window.opener.$A.get("e.c:ltngOut_Event"))) {
+                    myExternalEvent.setParams({WhoFired:'SparklePublicWebsite - DynamicSearch'});
+                    myExternalEvent.setParams({attribName:newValue});
+                    myExternalEvent.fire();
+                }
+
+        }
+        
+    </script>
+
+                        <div id="lightningLocator"  />
+                   

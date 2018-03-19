@@ -174,27 +174,7 @@ app.get('/dynamicsearch', function(req, res, next){
 
   
 
-        /*
-        var fullNames = [ 'FilesViewer', 'DynamicSearch' ];
-        conn.metadata.read('AuraDefinitionBundle', fullNames, function(err, metadata) {
-          if (err) { console.error(err); }
-          for (var i=0; i < metadata.length; i++) {
-            var meta = metadata[i];
-            console.log("Full Name: " + meta.fullName);
-            console.log("Metadata: " + meta);
-            var documentation = meta.documentationContent;
-            console.log("DocContent:" + documentation);
-            if (documentation)
-            {
-                lcdoc = atob(documentation);
-                console.log("lcdoc:" + lcdoc);
-            }
-          }
-        // Point at thehandlebars view
-        res.render('dynamicsearch', { doc: lcdoc});  
-        });
-
-        */
+       
       });
 
 

@@ -39,46 +39,41 @@
         
     </script>
 
-    <div class="slds-grid slds-wrap">
-        <div class="slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--1-of-1">
-            <div class="lcs-docpage-header">DynamicSearch</div>
-        </div>
-        <div class="slds-size--1-of-1 slds-medium-size--4-of-6 slds-large-size--8-of-12">
-
-            <!-- Lightning Out Preview and rest of the page body goes here -->
-
             <div class="slds-grid slds-wrap">
-                <div class="slds-size--1-of-1 slds-medium-size--1-of-1 slds-large-size--1-of-1" style="padding-top: 1.2rem; font-size: 1.05rem; font-weight: 300;line-height: 1.7142857143;color: #5876a3;">
-                    {{{description}}}
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_12-of-12 slds-large-size_12-of-12">
+                    <div class="lcs-docpage-header">DynamicSearch</div>
                 </div>
-                <div id="lightningLocator" class="slds-size--1-of-2 slds-medium-size--4-of-6 slds-large-size--8-of-12" style="padding-top: 3.6rem; ">
+                <div class="slds-col slds-grid slds-size_1-of-1">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
+                    <div class="slds-box slds-theme_shade">
+                        <div id="lightningLocator"  />
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     
+                   <div class="slds-form slds-form_stacked">
+                        <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Attributes</h2>
+                        {{#each attributes}}
+                            <div class="slds-form-element">
+                                <label class="slds-form-element__label" for="input-id-01">{{attrs.name}}</label>
+                                <div class="slds-form-element__control">
+                                    <input type="text" id="input-id-01" class="slds-input" style="max-width: 70%" value="{{attrs.default}}" onchange="rerenderLC({{@index}}, this.value)" />
+                                </div>
+                            </div>
+                        {{/each}}
+                    </div>
                 </div>
-
-            </div>
-
-            
-        </div>
-
-        <div class="slds-size--1-of-1 slds-medium-size--2-of-6 slds-large-size--4-of-12" style="padding-top: 3.2rem;">
-            <div class="slds-form slds-form_stacked">
-                <h2 id="entity-header" class="slds-nav-vertical__title slds-text-title_caps">Attributes</h2>
-                {{#each attributes}}
-                     <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="input-id-01">{{attrs.name}}</label>
-                        <div class="slds-form-element__control">
-                            <input type="text" id="input-id-01" class="slds-input" value="{{attrs.default}}" onchange="rerenderLC({{@index}}, this.value)" />
+                </div>
+                <div class="slds-col slds-grid slds-size_1-of-1">
+                    <div class="slds-col slds-size_1-of-1">
+                        <div class="slds-col slds-size--12-of-12" style="padding-top: 1.2rem; font-size: 1.05rem; font-weight: 300;line-height: 1.7142857143;color: #5876a3;">
+                            {{{description}}}
                         </div>
                     </div>
-                {{/each}}
-                
-                
-            
-
+                </div>
             </div>
-        </div>
 
-        <div id="lcdoc" class="slds-size--1-of-1" style="padding-top: 3.2rem;">
+
             
         </div>
 
